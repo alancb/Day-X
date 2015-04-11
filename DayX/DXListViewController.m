@@ -10,4 +10,8 @@
 
 @implementation DXListViewController
 
+- (IBAction)addEntry:(id)sender {
+    [self performSegueWithIdentifier:@"rowSelected" sender:self];
+}
+
 @end

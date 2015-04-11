@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Alan Barth. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface DXListDataSource : NSObject
+@interface DXListDataSource : NSObject <UITableViewDataSource>
+
 
 @end

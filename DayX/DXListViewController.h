@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DXListViewController : UIVewController
+@interface DXListViewController : UIViewController <UITableViewDelegate>
 
 @end
