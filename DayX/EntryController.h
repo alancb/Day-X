@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Entry.h"
 
-@interface DXEntryController : NSObject
+@interface EntryController : NSObject
+
++ (EntryController *)sharedInstance;
+
+@property (nonatomic, strong) NSArray *entriesArray;
+
 
 @end
