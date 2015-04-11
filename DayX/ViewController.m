@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "Entry.h"
 
 
 
@@ -29,27 +29,49 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void) save: (id) sender {
-    NSDictionary *entry = @{titleKey:self.textField.text, bodyTextKey:self.otherText.text};
+-(void)updateWithTitle:(NSString *)title body:(NSString *)body {
+    self.textField.text = title;
+    self.otherText.text = body;
+}
+
+- (IBAction)save:(id)sender {
+    if (self.entry == nil) {
+        self.entry = [[Entry alloc]init];
+        self.entry.title = self.otherText.text;
+        self.entry.body = self.textField.text;
+    }
+    
+    NSMutableArray *entries = [Entry loadEntriesFromDefaults];
+    [entries addObject:self.entry];
+    [Entry storeEntriesInDefaults:entries];
+    
+    //[NSDate date]
+    NSDictionary *entry = @{titleKey:self.textField.text, bodyTextKey:self.otherText.text}; //change to entry
     [[NSUserDefaults standardUserDefaults] setObject:entry forKey:entryKey];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+    // add array with entry getting the new entries, then store in defaults
 }
 
-- (void) updateViewWithDictionary: (NSDictionary *) dictionary
+- (void) updateViewWithDictionary: (NSDictionary *) dictionary // change to entry
 {
-    self.textField.text = dictionary[titleKey];
+    self.textField.text = dictionary[titleKey]; //change to entry.title = text
     self.otherText.text = dictionary[bodyTextKey];
 }
 
 - (IBAction)buttonTapped:(id)sender {
-      self.textField.text = @"";
+    self.textField.text = @"";
     self.otherText.text = @"";
+    
 }
+
+#pragma mark - TextView delegate methods.
 
 - (void)textViewDidChange:(UITextView *)textView {
     [self save:self.textField];
 }
+
+#pragma mark - TextField delegate methods
 
 - (void)textFieldDidEndEditing:(UITextView *)textView {
     [self save:self.textField];

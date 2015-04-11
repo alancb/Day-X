@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-static NSString *const entryKey = @"entry";
-static NSString *const titleKey = @"title";
-static NSString *const bodyTextKey = @"bodytext";
+#import "Entry.h"
+
 
 @interface ViewController : UIViewController
 
+- (void) updateWithTitle:(NSString *)title body:(NSString *) body;
+
+@property (strong, nonatomic) Entry *entry;
 
 
 @end
