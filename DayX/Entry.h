@@ -22,8 +22,7 @@ static NSString *const AllEntriesKey = @"all entries";
 
 -(NSDictionary *)dictionaryFromEntry;
 -(id)initWithDictionary:(NSDictionary *)dictionary;
-+ (NSMutableArray *) loadEntriesFromDefaults;
-+ (void) storeEntriesInDefaults:(NSArray *)entries;
+
 
 
 @end

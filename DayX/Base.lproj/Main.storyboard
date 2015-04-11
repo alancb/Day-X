@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9jR-pF-z6R">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" textLabel="HNc-tB-3dk" style="IBUITableViewCellStyleDefault" id="suc-O3-xbu">
@@ -37,16 +37,16 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="dwU-Eu-N35" id="1qZ-Ly-rOT"/>
-                                    <outlet property="delegate" destination="a8l-CS-Ipp" id="DwT-a1-6Ba"/>
+                                    <outlet property="delegate" destination="a8l-CS-Ipp" id="2nd-Ed-t6x"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9jR-pF-z6R" firstAttribute="top" secondItem="VNY-HX-JdQ" secondAttribute="bottom" id="Kdh-N7-ZxD"/>
-                            <constraint firstItem="9jR-pF-z6R" firstAttribute="bottom" secondItem="Hh3-Ec-Twq" secondAttribute="top" id="MfU-Yl-X7K"/>
-                            <constraint firstAttribute="trailing" secondItem="9jR-pF-z6R" secondAttribute="trailing" id="Ybz-tr-5Ab"/>
-                            <constraint firstItem="9jR-pF-z6R" firstAttribute="leading" secondItem="oV4-tt-Q7U" secondAttribute="leading" id="fl1-RK-J5m"/>
+                            <constraint firstAttribute="trailing" secondItem="9jR-pF-z6R" secondAttribute="trailing" id="2kG-Lr-61U"/>
+                            <constraint firstItem="9jR-pF-z6R" firstAttribute="leading" secondItem="oV4-tt-Q7U" secondAttribute="leading" id="BM0-2Y-X8Z"/>
+                            <constraint firstItem="9jR-pF-z6R" firstAttribute="bottom" secondItem="Hh3-Ec-Twq" secondAttribute="top" id="BpR-DF-4JX"/>
+                            <constraint firstItem="9jR-pF-z6R" firstAttribute="top" secondItem="oV4-tt-Q7U" secondAttribute="top" id="WEu-i3-Mxb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ff2-MZ-c2I">
@@ -57,6 +57,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="9jR-pF-z6R" id="TRb-DV-YHm"/>
                         <segue destination="G54-jC-4NJ" kind="show" identifier="rowSelected" id="DaS-dK-LgH"/>
                     </connections>
                 </viewController>

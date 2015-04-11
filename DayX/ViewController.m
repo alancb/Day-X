@@ -7,9 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Entry.h"
-
-
+#import "EntryController.h"
 
 @interface ViewController () <UITextViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -21,12 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.textField.delegate = self;
     self.otherText.delegate = self;
     
-    NSDictionary *entry = [[NSUserDefaults standardUserDefaults] objectForKey:entryKey];
-    [self updateViewWithDictionary:entry];
-    // Do any additional setup after loading the view, typically from a nib.
+  
 }
 
 -(void)updateWithTitle:(NSString *)title body:(NSString *)body {
@@ -41,9 +38,9 @@
         self.entry.body = self.textField.text;
     }
     
-    NSMutableArray *entries = [Entry loadEntriesFromDefaults];
-    [entries addObject:self.entry];
-    [Entry storeEntriesInDefaults:entries];
+//    NSMutableArray *entries = [Entry loadEntriesFromDefaults];
+//    [entries addObject:self.entry];
+//    [Entry storeEntriesInDefaults:entries];
     
     //[NSDate date]
     NSDictionary *entry = @{titleKey:self.textField.text, bodyTextKey:self.otherText.text}; //change to entry
@@ -68,13 +65,11 @@
 #pragma mark - TextView delegate methods.
 
 - (void)textViewDidChange:(UITextView *)textView {
-    [self save:self.textField];
 }
 
 #pragma mark - TextField delegate methods
 
 - (void)textFieldDidEndEditing:(UITextView *)textView {
-    [self save:self.textField];
 }
 
 

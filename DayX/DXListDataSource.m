@@ -7,20 +7,20 @@
 //
 
 #import "DXListDataSource.h"
-#import "Entry.h"
+#import "EntryController.h"
 
 @implementation DXListDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [Entry loadEntriesFromDefaults].count;
+    return [EntryController sharedInstance].entriesArray.count;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"entryCell" forIndexPath:indexPath];
     
     
-    Entry *entryForCell = [Entry loadEntriesFromDefaults][indexPath.row];
-    cell.textLabel.text = entryForCell.title;
+    Entry *entry = [EntryController sharedInstance].entriesArray[indexPath.row];
+    cell.textLabel.text = entry.title;
     return cell;
 
 }

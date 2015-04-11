@@ -7,8 +7,23 @@
 //
 
 #import "DXListViewController.h"
+#import "DXListDataSource.h"
+
+@interface DXListViewController ()
+@property (nonatomic, strong)DXListDataSource *dataSource;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
+@end
 
 @implementation DXListViewController
+
+
+- (void)viewDidLoad {
+    self.dataSource = [DXListDataSource new];
+    
+    
+}
 
 - (IBAction)addEntry:(id)sender {
     [self performSegueWithIdentifier:@"rowSelected" sender:self];
