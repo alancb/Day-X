@@ -12,6 +12,9 @@
 @interface EntryController : NSObject
 
 + (EntryController *)sharedInstance;
+- (void) replaceEntry: (Entry *) oldEntry WithNewEntry:(Entry *) newEntry;
+- (void) removeEntry: (Entry *) entry;
+- (void) addEntry: (Entry *) entry;
 
 @property (nonatomic, strong) NSArray *entriesArray;
 

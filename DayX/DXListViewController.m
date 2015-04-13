@@ -8,6 +8,8 @@
 
 #import "DXListViewController.h"
 #import "DXListDataSource.h"
+#import "ViewController.h"
+#import "EntryController.h"
 
 @interface DXListViewController ()
 @property (nonatomic, strong)DXListDataSource *dataSource;
@@ -21,7 +23,10 @@
 
 - (void)viewDidLoad {
     self.dataSource = [DXListDataSource new];
-    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"rowSelected" sender:self]; //]updateWithEntry:[EntryController sharedInstance].entriesArray[indexPath.row]];
     
 }
 

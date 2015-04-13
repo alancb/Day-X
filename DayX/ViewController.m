@@ -17,11 +17,20 @@
 
 @implementation ViewController
 
+- (void) updateWithEntry: (Entry *) entry {
+    self.entry = entry;
+    self.textField.text = entry.title;
+    self.otherText.text = entry.body;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.textField.delegate = self;
     self.otherText.delegate = self;
+    
+    self.textField.text = self.entry.title;
+    self.otherText.text = self.entry.body;
     
   
 }
@@ -32,23 +41,19 @@
 }
 
 - (IBAction)save:(id)sender {
-    if (self.entry == nil) {
-        self.entry = [[Entry alloc]init];
-        self.entry.title = self.otherText.text;
-        self.entry.body = self.textField.text;
+    Entry *entry = [[Entry alloc] initWithDictionary:@{ titleKey:self.textField.text, bodyTextKey:self.otherText.text}];
+    
+    if (!self.entry) {
+        [[EntryController sharedInstance] addEntry:entry];
+    }
+    else {
+        [[EntryController sharedInstance] replaceEntry:self.entry WithNewEntry:entry];
     }
     
-//    NSMutableArray *entries = [Entry loadEntriesFromDefaults];
-//    [entries addObject:self.entry];
-//    [Entry storeEntriesInDefaults:entries];
-    
+
     //[NSDate date]
-    NSDictionary *entry = @{titleKey:self.textField.text, bodyTextKey:self.otherText.text}; //change to entry
-    [[NSUserDefaults standardUserDefaults] setObject:entry forKey:entryKey];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    // add array with entry getting the new entries, then store in defaults
 }
+
 
 - (void) updateViewWithDictionary: (NSDictionary *) dictionary // change to entry
 {

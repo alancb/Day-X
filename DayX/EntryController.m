@@ -38,7 +38,7 @@
 }
 
 - (void) replaceEntry: (Entry *) oldEntry WithNewEntry:(Entry *) newEntry {
-    NSMutableArray *mutableEntry = self.entriesArray.mutableCopy;
+    NSMutableArray *mutableEntry = [self.entriesArray mutableCopy];
     if ([mutableEntry containsObject:oldEntry]) {
         NSInteger index = [mutableEntry indexOfObject: oldEntry];
         [mutableEntry replaceObjectAtIndex:index withObject:newEntry];

@@ -13,8 +13,10 @@
 @interface ViewController : UIViewController
 
 - (void) updateWithTitle:(NSString *)title body:(NSString *) body;
+- (void) updateWithEntry: (Entry *) entry;
 
 @property (strong, nonatomic) Entry *entry;
+//@class Entry;
 
 
 @end
