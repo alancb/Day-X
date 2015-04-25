@@ -9,5 +9,14 @@
 #import "Car.h"
 
 @implementation Car
-
+- (instancetype)initWithDictionary: (NSDictionary *) dictionary
+{
+    self = [super init];
+    if (self) {
+        self.model = dictionary[ModelKey];
+        self.year = dictionary[YearKey];
+        self.make = dictionary [MakeKey];
+    }
+    return self;
+}
 @end

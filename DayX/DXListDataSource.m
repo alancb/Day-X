@@ -16,11 +16,11 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"entryCell" forIndexPath:indexPath];
-    
-    
     Entry *entry = [EntryController sharedInstance].entriesArray[indexPath.row];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"entryCell"];
     cell.textLabel.text = entry.title;
+    
     return cell;
 
 }

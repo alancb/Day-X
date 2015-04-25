@@ -25,13 +25,26 @@
     self.dataSource = [DXListDataSource new];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"rowSelected" sender:self]; //]updateWithEntry:[EntryController sharedInstance].entriesArray[indexPath.row]];
-    
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self performSegueWithIdentifier:@"rowSelected" sender:self]; //]updateWithEntry:[EntryController sharedInstance].entriesArray[indexPath.row]];
+//    
+//}
+//
+//- (IBAction)addEntry:(id)sender {
+//    [self performSegueWithIdentifier:@"rowSelected" sender:self];
+//}
 
-- (IBAction)addEntry:(id)sender {
-    [self performSegueWithIdentifier:@"rowSelected" sender:self];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"viewEntry"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        ViewController *viewController = segue.destinationViewController;
+        
+        Entry *entry = [EntryController sharedInstance].entriesArray[indexPath.row];
+        
+        viewController.entry = entry;
+    }
 }
 
 @end

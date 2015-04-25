@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *const entryKey = @"entry";
+//static NSString *const entryKey = @"entry";
 static NSString *const titleKey = @"title";
 static NSString *const TimeStampKey = @"timestamp";
 static NSString *const bodyTextKey = @"bodytext";
-static NSString *const AllEntriesKey = @"all entries";
+
 
 @interface Entry : NSObject
 

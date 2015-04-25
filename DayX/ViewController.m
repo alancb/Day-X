@@ -17,41 +17,49 @@
 
 @implementation ViewController
 
-- (void) updateWithEntry: (Entry *) entry {
-    self.entry = entry;
-    self.textField.text = entry.title;
-    self.otherText.text = entry.body;
-}
+//- (void) updateWithEntry: (Entry *) entry {
+//    self.entry = entry;
+//    self.textField.text = entry.title;
+//    self.otherText.text = entry.body;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.textField.delegate = self;
-    self.otherText.delegate = self;
-    
-    self.textField.text = self.entry.title;
-    self.otherText.text = self.entry.body;
+//    self.textField.delegate = self;
+//    self.otherText.delegate = self;
+//    
+//    self.textField.text = self.entry.title;
+//    self.otherText.text = self.entry.body;
+    [self updateWithEntry:self.entry];
     
   
 }
 
--(void)updateWithTitle:(NSString *)title body:(NSString *)body {
-    self.textField.text = title;
-    self.otherText.text = body;
+-(void)updateWithEntry: (Entry *) entry {
+    self.entry = entry;
+    self.otherText.text = entry.title;
+    self.textField.text = entry.body;
 }
 
 - (IBAction)save:(id)sender {
-    Entry *entry = [[Entry alloc] initWithDictionary:@{ titleKey:self.textField.text, bodyTextKey:self.otherText.text}];
-    
-    if (!self.entry) {
-        [[EntryController sharedInstance] addEntry:entry];
+//    Entry *entry = [[Entry alloc] initWithDictionary:@{ titleKey:self.textField.text, bodyTextKey:self.otherText.text}];
+//    
+//    if (!self.entry) {
+//        [[EntryController sharedInstance] addEntry:entry];
+//    }
+//    else {
+//        [[EntryController sharedInstance] replaceEntry:self.entry WithNewEntry:entry];
+//    }
+    if (self.entry) {
+        self.entry.title = self.otherText.text;
+        self.entry.body = self.textField.text;
+        self.entry.timestamp = [NSDate date];
+        
+        [[EntryController sharedInstance] save];
+    } else {
+        self.entry = [[EntryController sharedInstance] createEntryWithTitle:self.otherText.text bodyText:self.textField.text];
     }
-    else {
-        [[EntryController sharedInstance] replaceEntry:self.entry WithNewEntry:entry];
-    }
-    
-
-    //[NSDate date]
 }
 
 

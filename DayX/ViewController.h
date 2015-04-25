@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "Entry.h"
 
+@class Entry;
+
 
 @interface ViewController : UIViewController
 
-- (void) updateWithTitle:(NSString *)title body:(NSString *) body;
-- (void) updateWithEntry: (Entry *) entry;
-
 @property (strong, nonatomic) Entry *entry;
-//@class Entry;
+
+
+//- (void) updateWithTitle:(NSString *)title body:(NSString *) body;
+
 
 
 @end

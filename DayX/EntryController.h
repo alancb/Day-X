@@ -18,5 +18,9 @@
 
 @property (nonatomic, strong) NSArray *entriesArray;
 
+- (void) loadEntriesFromDefaults;
+- (void) save;
+- (Entry *) createEntryWithTitle: (NSString *)title bodyText: (NSString *) bodyText;
+
 
 @end

@@ -25,22 +25,22 @@
 }
 
 - (NSDictionary *) dictionaryFromEntry {
-//    NSDictionary *dictionary = @{
-//                                 titleKey : self.title,
-//                                 bodyTextKey : self.body,
-//                                 TimeStampKey : self.timestamp
-//                                 };
-    NSMutableDictionary *entryDictionary = [NSMutableDictionary new];
-    if (self.title ){
-        [entryDictionary setObject:self.title forKey:titleKey];
-    }
-    if (self.body) {
-        [entryDictionary setObject:self.body forKey:bodyTextKey];
-    }
-    if (self.timestamp) {
-        [entryDictionary setObject:self.timestamp forKey:TimeStampKey];
-    }
-    return entryDictionary;
+    NSDictionary *dictionary = @{
+                                 titleKey : self.title,
+                                 bodyTextKey : self.body,
+                                 TimeStampKey : self.timestamp
+                                 };
+//    NSMutableDictionary *entryDictionary = [NSMutableDictionary new];
+//    if (self.title ){
+//        [entryDictionary setObject:self.title forKey:titleKey];
+//    }
+//    if (self.body) {
+//        [entryDictionary setObject:self.body forKey:bodyTextKey];
+//    }
+//    if (self.timestamp) {
+//        [entryDictionary setObject:self.timestamp forKey:TimeStampKey];
+//    }
+    return dictionary;
                                 
 }
 
